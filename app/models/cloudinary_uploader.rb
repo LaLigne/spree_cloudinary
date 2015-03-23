@@ -11,6 +11,12 @@ class CloudinaryUploader < CarrierWave::Uploader::Base
     "assets/products/:id/:style/:basename.:extension"
   end
 
+  def flush_errors; end
+  def dirty?
+    false
+  end
+  def save; end
+
   # These are the versions defined in Spree::Image
   version :mini do
     process :resize_to_fit => [48, 48]

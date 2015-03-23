@@ -5,10 +5,5 @@ Spree::Image.class_eval do
   def save_attached_files; end
   def prepare_for_destroy; end
   def destroy_attached_files; end
-
-  private
-  # Get rid of Paperclip validation
-  def attachment_file_name
-    "not_blank"
-  end
+  def validates_attachment; end
 end

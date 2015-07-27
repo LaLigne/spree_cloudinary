@@ -33,4 +33,9 @@ class CloudinaryUploader < CarrierWave::Uploader::Base
   version :large do
     process :resize_to_fit => [600, 600]
   end
+
+  # For spree/paperclip compatibility - called when the asset is deleted
+  def queue_all_for_delete
+    remove!
+  end
 end
